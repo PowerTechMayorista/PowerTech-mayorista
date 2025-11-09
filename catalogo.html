@@ -91,13 +91,14 @@
     .product-image-link {
       display: block;
       width: 100%;
-      height: 250px; /* Hacemos la imagen más grande */
+      height: 250px;
+      cursor: pointer; /* Hace que se vea como que se puede clickear */
     }
 
     .product-image-link img {
       width: 100%;
       height: 100%;
-      object-fit: cover; /* Ajusta la imagen sin deformarla */
+      object-fit: cover;
       border-bottom: 1px solid #333;
     }
 
@@ -169,6 +170,47 @@
       color: #aaa;
     }
 
+    /* ESTILOS DEL MODAL (ventana flotante de imagen) */
+    .modal {
+      display: none; /* Oculto por defecto */
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9); /* Fondo oscuro */
+      backdrop-filter: blur(5px); /* Fondo ligeramente borroso */
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 90%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 2001;
+    }
+
+    .close:hover {
+      color: var(--primary);
+    }
+
     @media (max-width: 768px) {
       header {
         flex-direction: column;
@@ -181,6 +223,12 @@
 
       .product-grid {
         grid-template-columns: 1fr;
+      }
+
+      .close {
+        font-size: 30px;
+        top: 10px;
+        right: 15px;
       }
     }
   </style>
@@ -204,21 +252,21 @@
 
       <!-- Producto 1 -->
       <div class="product-card">
-        <a href="images/producto1.jpg" class="product-image-link" target="_blank">
+        <div class="product-image-link" onclick="openModal('images/producto1.jpg')">
           <img src="images/producto1.jpg" alt="Cargador iPhone Original">
-        </a>
+        </div>
         <div class="product-info">
           <h3>Cargador iPhone Original</h3>
           <p class="price">$8,800 c/u</p>
-          <p class="desc">Original Apple.Ficha C a C.</p>
+          <p class="desc">Original Apple. Ideal para venta directa.</p>
         </div>
       </div>
 
       <!-- Producto 2 -->
       <div class="product-card">
-        <a href="images/producto2.jpg" class="product-image-link" target="_blank">
+        <div class="product-image-link" onclick="openModal('images/producto2.jpg')">
           <img src="images/producto2.jpg" alt="Cargador Royall Cell Tipo C">
-        </a>
+        </div>
         <div class="product-info">
           <h3>Cargador Royall Cell Tipo C</h3>
           <p class="price">$3,000 c/u</p>
@@ -228,53 +276,22 @@
 
       <!-- Producto 3 -->
       <div class="product-card">
-        <a href="images/producto3.jpg" class="product-image-link" target="_blank">
+        <div class="product-image-link" onclick="openModal('images/producto3.jpg')">
           <img src="images/producto3.jpg" alt="Auricular Bolsa Motorola/AKG/Huawei">
-        </a>
+        </div>
         <div class="product-info">
           <h3>Auricular Bolsa Motorola/AKG/Huawei</h3>
           <p class="price">$1,800 c/u</p>
-          <p class="desc"> varios modelos. Calidad garantizada.</p>
+          <p class="desc">Compatible con varios modelos. Calidad garantizada.</p>
         </div>
       </div>
 
       <!-- Producto 4 -->
       <div class="product-card">
-        <a href="images/producto4.jpg" class="product-image-link" target="_blank">
+        <div class="product-image-link" onclick="openModal('images/producto4.jpg')">
           <img src="images/producto4.jpg" alt="Cable Tipo C Marca Volt">
-        </a>
+        </div>
         <div class="product-info">
           <h3>Cable Tipo C Marca Volt</h3>
           <p class="price">$1,500 c/u</p>
-          <p class="desc">Resistente y duradero. Los mejores del mercado.</p>
-        </div>
-      </div>
-
-      <!-- Producto 5 -->
-      <div class="product-card">
-        <a href="images/producto5.jpg" class="product-image-link" target="_blank">
-          <img src="images/producto5.jpg" alt="Auricular Bluetooth P9">
-        </a>
-        <div class="product-info">
-          <h3>Auricular Bluetooth P9</h3>
-          <p class="price">$6,800 c/u</p>
-          <p class="desc">Disponible en varios colores. Audio envolvente.</p>
-        </div>
-      </div>
-
-    </div>
-
-    <a href="index.html" class="back-link">← Volver al inicio</a>
-  </div>
-
-  <!-- WhatsApp flotante -->
-  <a href="https://wa.me/5491125967680" class="whatsapp-float" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="40">
-  </a>
-
-  <footer>
-    <p>&copy; 2025 Powertech Mayorista. Todos los derechos reservados.</p>
-  </footer>
-
-</body>
-</html>
+         
