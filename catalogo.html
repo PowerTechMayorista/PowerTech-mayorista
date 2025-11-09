@@ -36,6 +36,7 @@
       display: flex;
       align-items: center;
       gap: 1rem;
+      cursor: pointer; /* Hace que se vea como un enlace */
     }
 
     .logo img {
@@ -236,8 +237,8 @@
 <body>
 
   <header>
-    <div class="logo">
-      <img src="https://cdn-icons-png.flaticon.com/512/2976/2976125.png" alt="Logo Powertech Mayorista">
+    <div class="logo" onclick="window.location.href='index.html'">
+      <img src="images/logo.jpg" alt="Logo Powertech Mayorista">
       <div>
         <h1>Powertech Mayorista</h1>
         <p>Catálogo de productos al por mayor</p>
