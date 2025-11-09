@@ -362,6 +362,30 @@
       color: #000;
     }
 
+    /* Botón flotante de "Ofertas del mes" */
+    .btn-ofertas {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: #e74c3c;
+      color: white;
+      padding: 14px 22px;
+      border-radius: 50px;
+      font-weight: bold;
+      text-decoration: none;
+      z-index: 1000;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-ofertas:hover {
+      transform: scale(1.1);
+      background: #c0392b;
+    }
+
     /* Botón flotante de "Volver arriba" */
     .btn-top {
       position: fixed;
@@ -477,6 +501,9 @@
 </head>
 <body>
 
+  <!-- Botón flotante de "Ofertas del mes" -->
+  <a href="#ofertas" class="btn-ofertas">🔥 Ofertas del Mes</a>
+
   <!-- Botón flotante de "Volver arriba" -->
   <a href="#" class="btn-top" id="btnTop" title="Volver arriba">↑</a>
 
@@ -493,7 +520,7 @@
 
   <!-- Banner de confianza -->
   <div class="trust-banner">
-    ✅ +100 ventas realizadas | 📍 Quilmes / Florencio Varela | 🚚 Envío el mismo día en CABA
+    ✅ +10.000 ventas realizadas | 📍 10 años en el rubro | 🚚 Envío el mismo día en CABA
   </div>
 
   <!-- Hero -->
@@ -520,7 +547,7 @@
   </section>
 
   <!-- Ofertas del mes -->
-  <section class="offers">
+  <section class="offers" id="ofertas">
     <h2>🔥 Ofertas del Mes</h2>
     <p>¡No te pierdas estas ofertas exclusivas para distribuidores!</p>
 
@@ -616,15 +643,8 @@
         btnTop.classList.remove("show");
       }
     };
-
-    // Abrir enlaces de YouTube en modo flotante (opcional, si querés mejorar la experiencia)
-    document.querySelectorAll('.video-item iframe').forEach(video => {
-      video.addEventListener('click', () => {
-        video.style.transform = 'scale(1.05)';
-        setTimeout(() => video.style.transform = '', 300);
-      });
-    });
   </script>
 
 </body>
 </html>
+    
