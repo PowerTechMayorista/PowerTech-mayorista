@@ -23,83 +23,92 @@
       line-height: 1.6;
     }
 
+    /* Encabezado con logo grande */
     header {
       background: linear-gradient(to right, var(--darker), #1a1a1a);
-      padding: 1.5rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      padding: 2rem 2rem;
+      text-align: center;
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
 
     .logo {
       display: flex;
+      flex-direction: column;
       align-items: center;
       gap: 1rem;
-      cursor: pointer; /* Hace que se vea como un enlace */
+      cursor: pointer;
     }
 
     .logo img {
-      height: 60px;
+      height: 140px; /* ¡Logo muy grande! */
       border-radius: 50%;
       background: white;
-      padding: 5px;
+      padding: 12px;
+      box-shadow: 0 0 25px rgba(255, 215, 0, 0.6);
+      transition: transform 0.3s ease;
+    }
+
+    .logo img:hover {
+      transform: scale(1.05);
     }
 
     .logo h1 {
-      font-size: 1.8rem;
-      margin: 0;
+      font-size: 2.8rem;
+      margin: 0.5rem 0 0;
       color: var(--primary);
     }
 
     .logo p {
-      font-size: 1rem;
+      font-size: 1.4rem;
       margin: 0;
       color: var(--secondary);
     }
 
+    /* Hero principal */
     .hero {
       background: linear-gradient(135deg, var(--darker), #1a1a1a);
-      padding: 5rem 2rem;
+      padding: 6rem 2rem;
       text-align: center;
     }
 
     .hero h2 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       color: var(--primary);
       margin-bottom: 1rem;
     }
 
     .hero p {
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       max-width: 800px;
       margin: 0 auto 2rem;
       color: #ccc;
     }
 
+    /* Botón principal */
     .btn {
       display: inline-block;
       background: var(--primary);
       color: var(--darker);
-      padding: 14px 36px;
+      padding: 18px 45px;
       border-radius: 50px;
       font-weight: bold;
-      font-size: 1.3rem;
+      font-size: 1.5rem;
       text-decoration: none;
-      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.5);
       transition: all 0.3s ease;
     }
 
     .btn:hover {
       transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+      box-shadow: 0 6px 25px rgba(255, 215, 0, 0.7);
     }
 
+    /* Sección de características */
     .features {
       display: flex;
       justify-content: center;
       gap: 2rem;
-      padding: 3rem 2rem;
+      padding: 4rem 2rem;
       max-width: 1200px;
       margin: 0 auto;
       flex-wrap: wrap;
@@ -107,7 +116,7 @@
 
     .feature {
       background: var(--card-bg);
-      padding: 1.8rem;
+      padding: 2rem;
       border-radius: 15px;
       width: 280px;
       text-align: center;
@@ -116,7 +125,7 @@
     }
 
     .feature:hover {
-      transform: translateY(-8px);
+      transform: translateY(-10px);
     }
 
     .feature h3 {
@@ -128,22 +137,103 @@
       color: #aaa;
     }
 
-    .contact {
+    /* Banner de confianza */
+    .trust-banner {
+      background: #1a3a6e;
+      color: white;
+      text-align: center;
+      padding: 1.2rem;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    /* Ofertas del mes */
+    .offers {
       background: var(--card-bg);
-      padding: 3rem 2rem;
+      padding: 4rem 2rem;
       text-align: center;
     }
 
-    .contact h2 {
+    .offers h2 {
       color: var(--primary);
+      font-size: 2.6rem;
       margin-bottom: 1.5rem;
     }
 
-    .contact p {
-      font-size: 1.2rem;
+    .offer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .offer-card {
+      background: var(--darker);
+      padding: 1.5rem;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      text-align: center;
+    }
+
+    .offer-card h3 {
+      color: var(--secondary);
+      margin-bottom: 0.5rem;
+    }
+
+    .offer-card p.price {
+      color: var(--primary);
+      font-weight: bold;
+      font-size: 1.4rem;
+      margin: 0.5rem 0;
+    }
+
+    .offer-card p.desc {
+      color: #aaa;
+      font-size: 0.95rem;
+    }
+
+    /* Combos */
+    .combos {
+      background: var(--darker);
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+
+    .combos h2 {
+      color: var(--primary);
+      font-size: 2.4rem;
       margin-bottom: 1.5rem;
     }
 
+    .combos p {
+      font-size: 1.3rem;
+      max-width: 800px;
+      margin: 0 auto 2rem;
+      color: #ccc;
+    }
+
+    /* Botón flotante de ofertas */
+    .btn-ofertas {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      background: #e74c3c;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 50px;
+      font-weight: bold;
+      text-decoration: none;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+      transition: all 0.3s ease;
+    }
+
+    .btn-ofertas:hover {
+      transform: scale(1.1);
+    }
+
+    /* WhatsApp flotante */
     .whatsapp-float {
       position: fixed;
       bottom: 30px;
@@ -177,13 +267,20 @@
     }
 
     @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        text-align: center;
+      .logo img {
+        height: 120px;
       }
 
-      .logo {
-        flex-direction: column;
+      .logo h1 {
+        font-size: 2.2rem;
+      }
+
+      .logo p {
+        font-size: 1.2rem;
+      }
+
+      .hero h2 {
+        font-size: 2.4rem;
       }
 
       .features {
@@ -195,10 +292,17 @@
         width: 100%;
         max-width: 350px;
       }
+
+      .offer-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
+
+  <!-- Botón flotante de ofertas -->
+  <a href="#ofertas" class="btn-ofertas">🔥 OFERTAS AHORA</a>
 
   <!-- Encabezado -->
   <header>
@@ -211,9 +315,14 @@
     </div>
   </header>
 
+  <!-- Banner de confianza -->
+  <div class="trust-banner">
+    ✅ +100 ventas realizadas | 📍 Quilmes / Florencio Varela | 🚚 Envío el mismo día en CABA
+  </div>
+
   <!-- Hero -->
   <section class="hero">
-    <h2>Proveedor Confiable de Accesorios al Por Mayor</h2>
+    <h2>💥 Dejá de pagar de más: precios de mayorista para tu negocio</h2>
     <p>Productos de calidad para tiendas, distribuidores y emprendedores. Precios especiales por volumen. Envíos a todo el país. En CABA entrega el mismo día.</p>
     <a href="catalogo.html" class="btn">Ver Catálogo Completo</a>
   </section>
@@ -234,14 +343,47 @@
     </div>
   </section>
 
-  <!-- Contacto -->
-  <section class="contact">
-    <h2>¿Quieres cotizar o saber más?</h2>
-    <p>¡Escríbenos por WhatsApp y te atendemos al instante!</p>
-    <a href="https://wa.me/5491125967680" class="btn">Contactar por WhatsApp</a>
-    <p style="margin-top: 1.5rem; font-size: 1rem; color: #aaa;">
-      Atendemos en Quilmes, Florencio Varela y Temperley, Buenos Aires.
-    </p>
+  <!-- Ofertas del mes -->
+  <section class="offers" id="ofertas">
+    <h2>🔥 Ofertas del Mes</h2>
+    <p>¡No te pierdas estas ofertas exclusivas para distribuidores!</p>
+
+    <div class="offer-grid">
+      <!-- Oferta 1 -->
+      <div class="offer-card">
+        <h3>Cargador iPhone Original</h3>
+        <p class="price">$50.000 por 10 unidades</p>
+        <p class="desc">Cabezal + cable Tipo C. Ideal para venta directa.</p>
+      </div>
+
+      <!-- Oferta 2 -->
+      <div class="offer-card">
+        <h3>Cables Volt Tipo C 1m reforzados</h3>
+        <p class="price">$18.000 por 20 unidades</p>
+        <p class="desc">Durabilidad máxima. Compatible con todos los móviles.</p>
+      </div>
+
+      <!-- Oferta 3 -->
+      <div class="offer-card">
+        <h3>Auricular Bluetooth P9</h3>
+        <p class="price">$50.000 por 10 unidades</p>
+        <p class="desc">Disponible en varios colores. Conexión estable.</p>
+      </div>
+
+      <!-- Oferta 4 -->
+      <div class="offer-card">
+        <h3>Cargador Royal Cell 20W Tipo C/V8</h3>
+        <p class="price">$50.000 por 20 unidades</p>
+        <p class="desc">Carga rápida. Compatible con iPhone y Android.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Combos -->
+  <section class="combos">
+    <h2>🎁 ¡También puedes preguntar por nuestros combos!</h2>
+    <p>💥 <strong>¡Desde $20.000 pesos!</strong> Combos ideales para tiendas: mezcla de cables, cargadores y auriculares con descuento por volumen.</p>
+    <a href="https://wa.me/5491125967680?text=Hola,%20quiero%20más%20información%20sobre%20los%20combos%20de%20mayorista." class="btn">Solicitar Combo Personalizado</a>
   </section>
 
   <!-- WhatsApp flotante -->
