@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Powertech Mayorista - Accesorios al por mayor</title>
+  <title>Catálogo - Powertech Mayorista</title>
   <style>
     :root {
       --primary: #FFD700; /* dorado */
@@ -25,168 +25,118 @@
 
     header {
       background: linear-gradient(to right, var(--darker), #1a1a1a);
-      padding: 2rem 2rem;
-      text-align: center;
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
 
     .logo {
       display: flex;
-      flex-direction: column;
       align-items: center;
       gap: 1rem;
       cursor: pointer;
     }
 
     .logo img {
-      height: 120px; /* ¡Logo más grande! */
+      height: 60px;
       border-radius: 50%;
       background: white;
-      padding: 10px;
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+      padding: 5px;
     }
 
     .logo h1 {
-      font-size: 2.5rem;
-      margin: 0.5rem 0 0;
+      font-size: 1.8rem;
+      margin: 0;
       color: var(--primary);
     }
 
     .logo p {
-      font-size: 1.3rem;
+      font-size: 1rem;
       margin: 0;
       color: var(--secondary);
     }
 
-    .hero {
-      background: linear-gradient(135deg, var(--darker), #1a1a1a);
-      padding: 5rem 2rem;
-      text-align: center;
-    }
-
-    .hero h2 {
-      font-size: 2.8rem;
-      color: var(--primary);
-      margin-bottom: 1rem;
-    }
-
-    .hero p {
-      font-size: 1.4rem;
-      max-width: 800px;
-      margin: 0 auto 2rem;
-      color: #ccc;
-    }
-
-    .btn {
-      display: inline-block;
-      background: var(--primary);
-      color: var(--darker);
-      padding: 16px 40px;
-      border-radius: 50px;
-      font-weight: bold;
-      font-size: 1.4rem;
-      text-decoration: none;
-      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
-      transition: all 0.3s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
-    }
-
-    .features {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      padding: 3rem 2rem;
+    .container {
+      padding: 2rem;
       max-width: 1200px;
       margin: 0 auto;
-      flex-wrap: wrap;
     }
 
-    .feature {
-      background: var(--card-bg);
-      padding: 1.8rem;
-      border-radius: 15px;
-      width: 280px;
+    .catalog-title {
       text-align: center;
+      margin-bottom: 2rem;
+      color: var(--primary);
+      font-size: 2.2rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+    }
+
+    .product-card {
+      background: var(--card-bg);
+      border-radius: 15px;
+      overflow: hidden;
       box-shadow: 0 6px 16px rgba(0,0,0,0.4);
       transition: transform 0.3s ease;
     }
 
-    .feature:hover {
-      transform: translateY(-8px);
+    .product-card:hover {
+      transform: translateY(-10px);
     }
 
-    .feature h3 {
-      color: var(--secondary);
-      margin-bottom: 1rem;
+    .product-image-link {
+      display: block;
+      width: 100%;
+      height: 250px;
+      cursor: pointer;
     }
 
-    .feature p {
-      color: #aaa;
+    .product-image-link img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-bottom: 1px solid #333;
     }
 
-    .offers {
-      background: var(--card-bg);
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    .offers h2 {
-      color: var(--primary);
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-    }
-
-    .offer-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 2rem;
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    .offer-card {
-      background: var(--darker);
+    .product-info {
       padding: 1.5rem;
-      border-radius: 15px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
       text-align: center;
     }
 
-    .offer-card h3 {
-      color: var(--secondary);
+    .product-info h3 {
       margin-bottom: 0.5rem;
+      color: var(--secondary);
     }
 
-    .offer-card p.price {
+    .product-info p.price {
       color: var(--primary);
       font-weight: bold;
       font-size: 1.3rem;
       margin: 0.5rem 0;
     }
 
-    .offer-card p.desc {
+    .product-info p.desc {
       color: #aaa;
       font-size: 0.95rem;
     }
 
-    .contact {
-      background: var(--card-bg);
-      padding: 3rem 2rem;
+    .back-link {
+      display: block;
       text-align: center;
-    }
-
-    .contact h2 {
-      color: var(--primary);
-      margin-bottom: 1.5rem;
-    }
-
-    .contact p {
+      margin: 2rem auto;
+      color: var(--secondary);
+      font-weight: bold;
+      text-decoration: none;
       font-size: 1.2rem;
-      margin-bottom: 1.5rem;
+    }
+
+    .back-link:hover {
+      text-decoration: underline;
     }
 
     .whatsapp-float {
@@ -221,127 +171,197 @@
       color: #aaa;
     }
 
+    /* ESTILOS DEL MODAL (ventana flotante de imagen) */
+    .modal {
+      display: none; /* Oculto por defecto */
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.9); /* Fondo oscuro */
+      backdrop-filter: blur(5px); /* Fondo ligeramente borroso */
+    }
+
+    .modal-content {
+      margin: auto;
+      display: block;
+      max-width: 90%;
+      max-height: 90%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      position: absolute;
+      border-radius: 8px;
+      box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    }
+
+    .close {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 40px;
+      font-weight: bold;
+      cursor: pointer;
+      z-index: 2001;
+    }
+
+    .close:hover {
+      color: var(--primary);
+    }
+
     @media (max-width: 768px) {
-      .logo img {
-        height: 100px;
-      }
-
-      .logo h1 {
-        font-size: 2rem;
-      }
-
-      .logo p {
-        font-size: 1.1rem;
-      }
-
-      .hero h2 {
-        font-size: 2.2rem;
-      }
-
-      .features {
+      header {
         flex-direction: column;
-        align-items: center;
+        text-align: center;
       }
 
-      .feature {
-        width: 100%;
-        max-width: 350px;
+      .logo {
+        flex-direction: column;
       }
 
-      .offer-grid {
+      .product-grid {
         grid-template-columns: 1fr;
+      }
+
+      .close {
+        font-size: 30px;
+        top: 10px;
+        right: 15px;
       }
     }
   </style>
 </head>
 <body>
 
-  <!-- Encabezado -->
   <header>
     <div class="logo" onclick="window.location.href='index.html'">
       <img src="images/logo.jpg" alt="Logo Powertech Mayorista">
       <div>
         <h1>Powertech Mayorista</h1>
-        <p>Accesorios electrónicos al por mayor</p>
+        <p>Catálogo de productos al por mayor</p>
       </div>
     </div>
   </header>
 
-  <!-- Hero -->
-  <section class="hero">
-    <h2>Proveedor de Accesorios al Por Mayor</h2>
-    <p>Productos de calidad para tiendas, distribuidores y emprendedores. Precios especiales por volumen. Envíos a todo el país. En CABA entrega el mismo día.</p>
-    <a href="catalogo.html" class="btn">Ver Catálogo Completo</a>
-  </section>
+  <div class="container">
+    <h2 class="catalog-title">Nuestros Productos Disponibles</h2>
 
-  <!-- Características -->
-  <section class="features">
-    <div class="feature">
-      <h3>📦 Productos de Calidad</h3>
-      <p>Originales y compatibles. Cargadores, cables, auriculares y más.</p>
-    </div>
-    <div class="feature">
-      <h3>🚚 Envíos a Todo el País</h3>
-      <p>Trabajamos con paquetería segura. En CABA entregamos el mismo día.</p>
-    </div>
-    <div class="feature">
-      <h3>💬 Atención Rápida por WhatsApp</h3>
-      <p>Contestamos en minutos. Ideal para pedidos urgentes y consultas.</p>
-    </div>
-  </section>
+    <div class="product-grid">
 
-  <!-- Ofertas del mes -->
-  <section class="offers">
-    <h2>🔥 Ofertas del Mes</h2>
-    <p>¡No te pierdas estas ofertas exclusivas para distribuidores!</p>
-
-    <div class="offer-grid">
-      <!-- Oferta 1 -->
-      <div class="offer-card">
-        <h3>Cargador iPhone Original</h3>
-        <p class="price">$50.000 por 10 unidades</p>
-        <p class="desc">Cabezal + cable Tipo C. Ideal para venta directa.</p>
+      <!-- Producto 1 -->
+      <div class="product-card">
+        <div class="product-image-link" onclick="openModal('images/producto1.jpg')">
+          <img src="images/producto1.jpg" alt="Cargador iPhone Original">
+        </div>
+        <div class="product-info">
+          <h3>Cargador iPhone Original</h3>
+          <p class="price">$8,800 c/u</p>
+          <p class="desc">Original Apple. Ideal para venta directa.</p>
+        </div>
       </div>
 
-      <!-- Oferta 2 -->
-      <div class="offer-card">
-        <h3>Cables Volt Tipo C 1m reforzados</h3>
-        <p class="price">$18.000 por 20 unidades</p>
-        <p class="desc">Durabilidad máxima. Compatible con todos los móviles.</p>
+      <!-- Producto 2 -->
+      <div class="product-card">
+        <div class="product-image-link" onclick="openModal('images/producto2.jpg')">
+          <img src="images/producto2.jpg" alt="Cargador Royall Cell Tipo C">
+        </div>
+        <div class="product-info">
+          <h3>Cargador Royall Cell Tipo C</h3>
+          <p class="price">$3,000 c/u</p>
+          <p class="desc">Alta velocidad. Compatible con Android.</p>
+        </div>
       </div>
 
-      <!-- Oferta 3 -->
-      <div class="offer-card">
-        <h3>Auricular Bluetooth P9</h3>
-        <p class="price">$50.000 por 10 unidades</p>
-        <p class="desc">Disponible en varios colores. Conexión estable.</p>
+      <!-- Producto 3 -->
+      <div class="product-card">
+        <div class="product-image-link" onclick="openModal('images/producto3.jpg')">
+          <img src="images/producto3.jpg" alt="Auricular Bolsa Motorola/AKG/Huawei">
+        </div>
+        <div class="product-info">
+          <h3>Auricular Bolsa Motorola/AKG/Huawei</h3>
+          <p class="price">$1,800 c/u</p>
+          <p class="desc">Compatible con varios modelos. Calidad garantizada.</p>
+        </div>
       </div>
 
-      <!-- Oferta 4 -->
-      <div class="offer-card">
-        <h3>Cargador Royal Cell 20W Tipo C/V8</h3>
-        <p class="price">$50.000 por 20 unidades</p>
-        <p class="desc">Carga rápida. Compatible con iPhone y Android.</p>
+      <!-- Producto 4 -->
+      <div class="product-card">
+        <div class="product-image-link" onclick="openModal('images/producto4.jpg')">
+          <img src="images/producto4.jpg" alt="Cable Tipo C Marca Volt">
+        </div>
+        <div class="product-info">
+          <h3>Cable Tipo C Marca Volt</h3>
+          <p class="price">$1,500 c/u</p>
+          <p class="desc">Resistente y duradero. Ideal para venta al por mayor.</p>
+        </div>
       </div>
+
+      <!-- Producto 5 -->
+      <div class="product-card">
+        <div class="product-image-link" onclick="openModal('images/producto5.jpg')">
+          <img src="images/producto5.jpg" alt="Auricular Bluetooth P9">
+        </div>
+        <div class="product-info">
+          <h3>Auricular Bluetooth P9</h3>
+          <p class="price">$6,800 c/u</p>
+          <p class="desc">Disponible en varios colores. Conexión estable.</p>
+        </div>
+      </div>
+
     </div>
-  </section>
 
-  <!-- Combos -->
-  <section class="contact">
-    <h2>🎁 ¡También puedes preguntar por nuestros combos!</h2>
-    <p>💥 <strong>¡Desde $20.000 pesos!</strong> Combos ideales para tiendas: mezcla de cables, cargadores y auriculares con descuento por volumen.</p>
-    <a href="https://wa.me/5491125967680" class="btn">Solicitar Combo Personalizado</a>
-  </section>
+    <a href="index.html" class="back-link">← Volver al inicio</a>
+  </div>
+
+  <!-- Modal (ventana flotante) -->
+  <div id="imageModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
 
   <!-- WhatsApp flotante -->
   <a href="https://wa.me/5491125967680" class="whatsapp-float" target="_blank">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="40">
   </a>
 
-  <!-- Pie de página -->
   <footer>
     <p>&copy; 2025 Powertech Mayorista. Todos los derechos reservados.</p>
   </footer>
+
+  <script>
+    // Función para abrir el modal
+    function openModal(imageSrc) {
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImage");
+
+      modal.style.display = "block";
+      modalImg.src = imageSrc;
+    }
+
+    // Función para cerrar el modal
+    function closeModal() {
+      const modal = document.getElementById("imageModal");
+      modal.style.display = "none";
+    }
+
+    // Cerrar al presionar ESC
+    window.addEventListener("keydown", function(event) {
+      if (event.key === "Escape") {
+        closeModal();
+      }
+    });
+
+    // Cerrar al hacer clic fuera de la imagen
+    window.addEventListener("click", function(event) {
+      const modal = document.getElementById("imageModal");
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+  </script>
 
 </body>
 </html>
