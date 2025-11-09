@@ -294,4 +294,73 @@
         <div class="product-info">
           <h3>Cable Tipo C Marca Volt</h3>
           <p class="price">$1,500 c/u</p>
-         
+          <p class="desc">Resistente y duradero. Ideal para venta al por mayor.</p>
+        </div>
+      </div>
+
+      <!-- Producto 5 -->
+      <div class="product-card">
+        <div class="product-image-link" onclick="openModal('images/producto5.jpg')">
+          <img src="images/producto5.jpg" alt="Auricular Bluetooth P9">
+        </div>
+        <div class="product-info">
+          <h3>Auricular Bluetooth P9</h3>
+          <p class="price">$6,800 c/u</p>
+          <p class="desc">Disponible en varios colores. Conexión estable.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <a href="index.html" class="back-link">← Volver al inicio</a>
+  </div>
+
+  <!-- Modal (ventana flotante) -->
+  <div id="imageModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img class="modal-content" id="modalImage">
+  </div>
+
+  <!-- WhatsApp flotante -->
+  <a href="https://wa.me/5491125967680" class="whatsapp-float" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="40">
+  </a>
+
+  <footer>
+    <p>&copy; 2025 Powertech Mayorista. Todos los derechos reservados.</p>
+  </footer>
+
+  <script>
+    // Función para abrir el modal
+    function openModal(imageSrc) {
+      const modal = document.getElementById("imageModal");
+      const modalImg = document.getElementById("modalImage");
+
+      modal.style.display = "block";
+      modalImg.src = imageSrc;
+    }
+
+    // Función para cerrar el modal
+    function closeModal() {
+      const modal = document.getElementById("imageModal");
+      modal.style.display = "none";
+    }
+
+    // Cerrar al presionar ESC
+    window.addEventListener("keydown", function(event) {
+      if (event.key === "Escape") {
+        closeModal();
+      }
+    });
+
+    // Cerrar al hacer clic fuera de la imagen
+    window.addEventListener("click", function(event) {
+      const modal = document.getElementById("imageModal");
+      if (event.target === modal) {
+        closeModal();
+      }
+    });
+  </script>
+
+</body>
+</html>
