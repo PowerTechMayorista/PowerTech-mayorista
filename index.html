@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Catálogo - Powertech Mayorista</title>
+  <title>Powertech Mayorista - Accesorios al por mayor</title>
   <style>
     :root {
       --primary: #FFD700; /* dorado */
@@ -23,122 +23,379 @@
       line-height: 1.6;
     }
 
+    /* Encabezado con logo enorme */
     header {
       background: linear-gradient(to right, var(--darker), #1a1a1a);
-      padding: 1.5rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      padding: 2rem 2rem;
+      text-align: center;
       box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
 
     .logo {
       display: flex;
+      flex-direction: column;
       align-items: center;
       gap: 1rem;
       cursor: pointer;
     }
 
     .logo img {
-      height: 60px;
+      height: 160px; /* ¡LOGO GRANDE Y BRILLANTE! */
       border-radius: 50%;
       background: white;
-      padding: 5px;
+      padding: 15px;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.7);
+      transition: transform 0.4s ease;
+    }
+
+    .logo img:hover {
+      transform: scale(1.08) rotate(2deg);
     }
 
     .logo h1 {
-      font-size: 1.8rem;
-      margin: 0;
+      font-size: 3rem;
+      margin: 0.5rem 0 0;
       color: var(--primary);
+      letter-spacing: -1px;
     }
 
     .logo p {
-      font-size: 1rem;
+      font-size: 1.5rem;
       margin: 0;
       color: var(--secondary);
+      font-weight: 300;
     }
 
-    .container {
-      padding: 2rem;
+    /* Banner de confianza */
+    .trust-banner {
+      background: #1a3a6e;
+      color: white;
+      text-align: center;
+      padding: 1.2rem;
+      font-size: 1.2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+
+    /* Hero principal */
+    .hero {
+      background: linear-gradient(135deg, var(--darker), #1a1a1a);
+      padding: 6rem 2rem;
+      text-align: center;
+    }
+
+    .hero h2 {
+      font-size: 3.5rem;
+      color: var(--primary);
+      margin-bottom: 1rem;
+      line-height: 1.1;
+    }
+
+    .hero p {
+      font-size: 1.7rem;
+      max-width: 900px;
+      margin: 0 auto 3rem;
+      color: #ddd;
+      font-weight: 300;
+    }
+
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: var(--darker);
+      padding: 20px 50px;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 1.6rem;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.6);
+      transition: all 0.4s ease;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      transform: translateY(-5px) scale(1.05);
+      box-shadow: 0 10px 30px rgba(255, 215, 0, 0.8);
+    }
+
+    /* Sección de características */
+    .features {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 4rem 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+    }
+
+    .feature {
+      background: var(--card-bg);
+      padding: 2.5rem;
+      border-radius: 18px;
+      width: 280px;
+      text-align: center;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+      transition: transform 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .feature:hover {
+      transform: translateY(-15px);
+    }
+
+    .feature::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, transparent, var(--primary), transparent);
+      animation: shine 2s infinite;
+    }
+
+    @keyframes shine {
+      0% { left: -100%; }
+      100% { left: 100%; }
+    }
+
+    .feature h3 {
+      color: var(--secondary);
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+
+    .feature p {
+      color: #bbb;
+      font-size: 1.1rem;
+    }
+
+    /* Ofertas del mes */
+    .offers {
+      background: var(--card-bg);
+      padding: 5rem 2rem;
+      text-align: center;
+    }
+
+    .offers h2 {
+      color: var(--primary);
+      font-size: 2.8rem;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+    }
+
+    .offer-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2.5rem;
       max-width: 1200px;
       margin: 0 auto;
     }
 
-    .catalog-title {
+    .offer-card {
+      background: var(--darker);
+      padding: 2rem;
+      border-radius: 18px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.5);
       text-align: center;
-      margin-bottom: 2rem;
+      border: 2px solid rgba(255, 215, 0, 0.2);
+    }
+
+    .offer-card h3 {
+      color: var(--secondary);
+      margin-bottom: 0.8rem;
+      font-size: 1.6rem;
+    }
+
+    .offer-card p.price {
       color: var(--primary);
-      font-size: 2.2rem;
+      font-weight: bold;
+      font-size: 1.8rem;
+      margin: 0.8rem 0;
+      text-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
     }
 
-    .product-grid {
+    .offer-card p.desc {
+      color: #bbb;
+      font-size: 1rem;
+    }
+
+    /* Combos */
+    .combos {
+      background: linear-gradient(to right, #1a1a1a, #0a0a0a);
+      padding: 5rem 2rem;
+      text-align: center;
+      border-top: 5px solid var(--primary);
+      border-bottom: 5px solid var(--primary);
+    }
+
+    .combos h2 {
+      color: var(--primary);
+      font-size: 2.8rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .combos p {
+      font-size: 1.5rem;
+      max-width: 800px;
+      margin: 0 auto 2.5rem;
+      color: #eee;
+      font-weight: 300;
+    }
+
+    .btn-combo {
+      background: var(--primary);
+      color: var(--darker);
+      padding: 18px 50px;
+      border-radius: 50px;
+      font-weight: bold;
+      font-size: 1.6rem;
+      text-decoration: none;
+      box-shadow: 0 6px 20px rgba(255, 215, 0, 0.7);
+      transition: all 0.4s ease;
+      display: inline-block;
+    }
+
+    .btn-combo:hover {
+      transform: scale(1.08);
+      box-shadow: 0 10px 30px rgba(255, 215, 0, 0.9);
+      background: #ffcc00;
+    }
+
+    /* Videos de productos */
+    .videos-section {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: var(--darker);
+    }
+
+    .videos-section h2 {
+      color: var(--primary);
+      font-size: 2.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .video-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
       gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
     }
 
-    .product-card {
-      background: var(--card-bg);
+    .video-item {
+      position: relative;
       border-radius: 15px;
       overflow: hidden;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.4);
-      transition: transform 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
     }
 
-    .product-card:hover {
-      transform: translateY(-10px);
-    }
-
-    .product-image-link {
-      display: block;
+    .video-item iframe {
       width: 100%;
-      height: 250px;
-      cursor: pointer;
+      height: 180px;
+      border: none;
     }
 
-    .product-image-link img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-bottom: 1px solid #333;
-    }
-
-    .product-info {
-      padding: 1.5rem;
-      text-align: center;
-    }
-
-    .product-info h3 {
-      margin-bottom: 0.5rem;
-      color: var(--secondary);
-    }
-
-    .product-info p.price {
-      color: var(--primary);
+    .video-item .caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(0,0,0,0.7);
+      color: white;
+      padding: 1rem;
+      font-size: 1.1rem;
       font-weight: bold;
-      font-size: 1.3rem;
-      margin: 0.5rem 0;
     }
 
-    .product-info p.desc {
-      color: #aaa;
-      font-size: 0.95rem;
-    }
-
-    .back-link {
-      display: block;
+    /* Redes sociales */
+    .social-links {
       text-align: center;
-      margin: 2rem auto;
-      color: var(--secondary);
+      padding: 3rem 2rem;
+      background: var(--darker);
+      border-top: 1px solid #333;
+    }
+
+    .social-links h3 {
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      font-size: 1.8rem;
+    }
+
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .social-icons a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: #222;
+      color: white;
+      font-size: 1.5rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    .social-icons a:hover {
+      transform: translateY(-5px) scale(1.1);
+      background: var(--primary);
+    }
+
+    .social-icons a.instagram {
+      color: #e4405f;
+    }
+
+    .social-icons a.facebook {
+      color: #1877f2;
+    }
+
+    .social-icons a.tiktok {
+      color: #000;
+    }
+
+    /* Botón flotante de "Volver arriba" */
+    .btn-top {
+      position: fixed;
+      bottom: 90px;
+      right: 30px;
+      width: 50px;
+      height: 50px;
+      background-color: var(--primary);
+      color: var(--darker);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
       font-weight: bold;
       text-decoration: none;
-      font-size: 1.2rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+      z-index: 1000;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.4s ease, visibility 0.4s ease;
     }
 
-    .back-link:hover {
-      text-decoration: underline;
+    .btn-top.show {
+      opacity: 1;
+      visibility: visible;
     }
 
+    .btn-top:hover {
+      background-color: var(--secondary);
+      transform: scale(1.1);
+    }
+
+    /* WhatsApp flotante */
     .whatsapp-float {
       position: fixed;
       bottom: 30px;
@@ -169,197 +426,203 @@
       padding: 2rem;
       background: #000;
       color: #aaa;
-    }
-
-    /* ESTILOS DEL MODAL (ventana flotante de imagen) */
-    .modal {
-      display: none; /* Oculto por defecto */
-      position: fixed;
-      z-index: 2000;
-      left: 0;
-      top: 0;
-      width: 100%;
-      height: 100%;
-      background-color: rgba(0,0,0,0.9); /* Fondo oscuro */
-      backdrop-filter: blur(5px); /* Fondo ligeramente borroso */
-    }
-
-    .modal-content {
-      margin: auto;
-      display: block;
-      max-width: 90%;
-      max-height: 90%;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      position: absolute;
-      border-radius: 8px;
-      box-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
-    }
-
-    .close {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      color: white;
-      font-size: 40px;
-      font-weight: bold;
-      cursor: pointer;
-      z-index: 2001;
-    }
-
-    .close:hover {
-      color: var(--primary);
+      font-size: 1rem;
     }
 
     @media (max-width: 768px) {
-      header {
-        flex-direction: column;
-        text-align: center;
+      .logo img {
+        height: 130px;
       }
 
-      .logo {
-        flex-direction: column;
+      .logo h1 {
+        font-size: 2.4rem;
       }
 
-      .product-grid {
+      .logo p {
+        font-size: 1.3rem;
+      }
+
+      .hero h2 {
+        font-size: 2.6rem;
+      }
+
+      .hero p {
+        font-size: 1.4rem;
+      }
+
+      .btn {
+        padding: 16px 40px;
+        font-size: 1.4rem;
+      }
+
+      .feature {
+        padding: 1.8rem;
+        width: 100%;
+        max-width: 350px;
+      }
+
+      .offer-grid,
+      .video-grid,
+      .social-icons {
         grid-template-columns: 1fr;
       }
 
-      .close {
-        font-size: 30px;
-        top: 10px;
-        right: 15px;
+      .social-icons a {
+        width: 50px;
+        height: 50px;
+        font-size: 1.3rem;
       }
     }
   </style>
 </head>
 <body>
 
+  <!-- Botón flotante de "Volver arriba" -->
+  <a href="#" class="btn-top" id="btnTop" title="Volver arriba">↑</a>
+
+  <!-- Encabezado -->
   <header>
     <div class="logo" onclick="window.location.href='index.html'">
       <img src="images/logo.jpg" alt="Logo Powertech Mayorista">
       <div>
         <h1>Powertech Mayorista</h1>
-        <p>Catálogo de productos al por mayor</p>
+        <p>Accesorios electrónicos al por mayor</p>
       </div>
     </div>
   </header>
 
-  <div class="container">
-    <h2 class="catalog-title">Nuestros Productos Disponibles</h2>
+  <!-- Banner de confianza -->
+  <div class="trust-banner">
+    ✅ +100 ventas realizadas | 📍 Quilmes / Florencio Varela | 🚚 Envío el mismo día en CABA
+  </div>
 
-    <div class="product-grid">
+  <!-- Hero -->
+  <section class="hero">
+    <h2>💥 Dejá de pagar de más: precios de mayorista para tu negocio</h2>
+    <p>Productos de calidad para tiendas, distribuidores y emprendedores. Precios especiales por volumen. Envíos a todo el país. En CABA entrega el mismo día.</p>
+    <a href="catalogo.html" class="btn">Ver Catálogo Completo</a>
+  </section>
 
-      <!-- Producto 1 -->
-      <div class="product-card">
-        <div class="product-image-link" onclick="openModal('images/producto1.jpg')">
-          <img src="images/producto1.jpg" alt="Cargador iPhone Original">
-        </div>
-        <div class="product-info">
-          <h3>Cargador iPhone Original</h3>
-          <p class="price">$8,800 c/u</p>
-          <p class="desc">Original Apple. Ideal para venta directa.</p>
-        </div>
-      </div>
-
-      <!-- Producto 2 -->
-      <div class="product-card">
-        <div class="product-image-link" onclick="openModal('images/producto2.jpg')">
-          <img src="images/producto2.jpg" alt="Cargador Royall Cell Tipo C">
-        </div>
-        <div class="product-info">
-          <h3>Cargador Royall Cell Tipo C</h3>
-          <p class="price">$3,000 c/u</p>
-          <p class="desc">Alta velocidad. Compatible con Android.</p>
-        </div>
-      </div>
-
-      <!-- Producto 3 -->
-      <div class="product-card">
-        <div class="product-image-link" onclick="openModal('images/producto3.jpg')">
-          <img src="images/producto3.jpg" alt="Auricular Bolsa Motorola/AKG/Huawei">
-        </div>
-        <div class="product-info">
-          <h3>Auricular Bolsa Motorola/AKG/Huawei</h3>
-          <p class="price">$1,800 c/u</p>
-          <p class="desc">Compatible con varios modelos. Calidad garantizada.</p>
-        </div>
-      </div>
-
-      <!-- Producto 4 -->
-      <div class="product-card">
-        <div class="product-image-link" onclick="openModal('images/producto4.jpg')">
-          <img src="images/producto4.jpg" alt="Cable Tipo C Marca Volt">
-        </div>
-        <div class="product-info">
-          <h3>Cable Tipo C Marca Volt</h3>
-          <p class="price">$1,500 c/u</p>
-          <p class="desc">Resistente y duradero. Ideal para venta al por mayor.</p>
-        </div>
-      </div>
-
-      <!-- Producto 5 -->
-      <div class="product-card">
-        <div class="product-image-link" onclick="openModal('images/producto5.jpg')">
-          <img src="images/producto5.jpg" alt="Auricular Bluetooth P9">
-        </div>
-        <div class="product-info">
-          <h3>Auricular Bluetooth P9</h3>
-          <p class="price">$6,800 c/u</p>
-          <p class="desc">Disponible en varios colores. Conexión estable.</p>
-        </div>
-      </div>
-
+  <!-- Características -->
+  <section class="features">
+    <div class="feature">
+      <h3>📦 Productos de Calidad</h3>
+      <p>Originales y compatibles. Cargadores, cables, auriculares y más.</p>
     </div>
+    <div class="feature">
+      <h3>🚚 Envíos a Todo el País</h3>
+      <p>Trabajamos con paquetería segura. En CABA entregamos el mismo día.</p>
+    </div>
+    <div class="feature">
+      <h3>💬 Atención Rápida por WhatsApp</h3>
+      <p>Contestamos en minutos. Ideal para pedidos urgentes y consultas.</p>
+    </div>
+  </section>
 
-    <a href="index.html" class="back-link">← Volver al inicio</a>
-  </div>
+  <!-- Ofertas del mes -->
+  <section class="offers">
+    <h2>🔥 Ofertas del Mes</h2>
+    <p>¡No te pierdas estas ofertas exclusivas para distribuidores!</p>
 
-  <!-- Modal (ventana flotante) -->
-  <div id="imageModal" class="modal">
-    <span class="close" onclick="closeModal()">&times;</span>
-    <img class="modal-content" id="modalImage">
-  </div>
+    <div class="offer-grid">
+      <!-- Oferta 1 -->
+      <div class="offer-card">
+        <h3>Cargador iPhone Original</h3>
+        <p class="price">$50.000 por 10 unidades</p>
+        <p class="desc">Cabezal + cable Tipo C. Ideal para venta directa.</p>
+      </div>
+
+      <!-- Oferta 2 -->
+      <div class="offer-card">
+        <h3>Cables Volt Tipo C 1m reforzados</h3>
+        <p class="price">$18.000 por 20 unidades</p>
+        <p class="desc">Durabilidad máxima. Compatible con todos los móviles.</p>
+      </div>
+
+      <!-- Oferta 3 -->
+      <div class="offer-card">
+        <h3>Auricular Bluetooth P9</h3>
+        <p class="price">$50.000 por 10 unidades</p>
+        <p class="desc">Disponible en varios colores. Conexión estable.</p>
+      </div>
+
+      <!-- Oferta 4 -->
+      <div class="offer-card">
+        <h3>Cargador Royal Cell 20W Tipo C/V8</h3>
+        <p class="price">$50.000 por 20 unidades</p>
+        <p class="desc">Carga rápida. Compatible con iPhone y Android.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Combos -->
+  <section class="combos">
+    <h2>🎁 ¡También puedes preguntar por nuestros combos!</h2>
+    <p>💥 <strong>¡Desde $20.000 pesos!</strong> Combos ideales para tiendas: mezcla de cables, cargadores y auriculares con descuento por volumen.</p>
+    <a href="https://wa.me/5491125967680?text=Hola,%20quiero%20más%20información%20sobre%20los%20combos%20de%20mayorista." class="btn-combo">Solicitar Combo Personalizado</a>
+  </section>
+
+  <!-- Videos de productos -->
+  <section class="videos-section">
+    <h2>🎥 Mira nuestros productos en acción</h2>
+    <div class="video-grid">
+      <!-- Video 1 -->
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/3d4Q1m5J6oY" allowfullscreen></iframe>
+        <div class="caption">Cargador iPhone Original — Carga rápida y duradero</div>
+      </div>
+
+      <!-- Video 2 -->
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/8q3j5Y0w6lA" allowfullscreen></iframe>
+        <div class="caption">Cable Volt Tipo C — Resistente hasta 10.000 dobleces</div>
+      </div>
+
+      <!-- Video 3 -->
+      <div class="video-item">
+        <iframe src="https://www.youtube.com/embed/5k7QvJj7sZc" allowfullscreen></iframe>
+        <div class="caption">Auricular P9 — Sonido claro y batería de 24h</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Redes sociales -->
+  <section class="social-links">
+    <h3>¡Síguenos en redes!</h3>
+    <div class="social-icons">
+      <a href="https://instagram.com/powertechmayorista" target="_blank" class="instagram">📷</a>
+      <a href="https://facebook.com/powertechmayorista" target="_blank" class="facebook">📘</a>
+      <a href="https://tiktok.com/@powertechmayorista" target="_blank" class="tiktok">🎬</a>
+    </div>
+  </section>
 
   <!-- WhatsApp flotante -->
   <a href="https://wa.me/5491125967680" class="whatsapp-float" target="_blank">
     <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp" width="40">
   </a>
 
+  <!-- Pie de página -->
   <footer>
     <p>&copy; 2025 Powertech Mayorista. Todos los derechos reservados.</p>
   </footer>
 
   <script>
-    // Función para abrir el modal
-    function openModal(imageSrc) {
-      const modal = document.getElementById("imageModal");
-      const modalImg = document.getElementById("modalImage");
-
-      modal.style.display = "block";
-      modalImg.src = imageSrc;
-    }
-
-    // Función para cerrar el modal
-    function closeModal() {
-      const modal = document.getElementById("imageModal");
-      modal.style.display = "none";
-    }
-
-    // Cerrar al presionar ESC
-    window.addEventListener("keydown", function(event) {
-      if (event.key === "Escape") {
-        closeModal();
+    // Mostrar botón "Volver arriba" al hacer scroll
+    window.onscroll = function() {
+      const btnTop = document.getElementById("btnTop");
+      if (document.body.scrollTop > 500 || document.documentElement.scrollTop > 500) {
+        btnTop.classList.add("show");
+      } else {
+        btnTop.classList.remove("show");
       }
-    });
+    };
 
-    // Cerrar al hacer clic fuera de la imagen
-    window.addEventListener("click", function(event) {
-      const modal = document.getElementById("imageModal");
-      if (event.target === modal) {
-        closeModal();
-      }
+    // Abrir enlaces de YouTube en modo flotante (opcional, si querés mejorar la experiencia)
+    document.querySelectorAll('.video-item iframe').forEach(video => {
+      video.addEventListener('click', () => {
+        video.style.transform = 'scale(1.05)';
+        setTimeout(() => video.style.transform = '', 300);
+      });
     });
   </script>
 
