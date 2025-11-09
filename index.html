@@ -4,10 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Powertech Mayorista - Accesorios al por mayor</title>
-  <link rel="stylesheet" href="styles/style.css">
-  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2976/2976125.png" type="image/x-icon">
   <style>
-    /* Colores principales */
     :root {
       --primary: #FFD700; /* dorado */
       --secondary: #FFC107; /* amarillo */
@@ -39,6 +36,7 @@
       display: flex;
       align-items: center;
       gap: 1rem;
+      cursor: pointer; /* Hace que se vea como un enlace */
     }
 
     .logo img {
@@ -204,9 +202,8 @@
 
   <!-- Encabezado -->
   <header>
-    <div class="logo">
-      <!-- Si tienes un logo, reemplaza esta imagen con la URL de tu logo -->
-      <img src="https://cdn-icons-png.flaticon.com/512/2976/2976125.png" alt="Logo Powertech Mayorista">
+    <div class="logo" onclick="window.location.href='index.html'">
+      <img src="images/logo.jpg" alt="Logo Powertech Mayorista">
       <div>
         <h1>Powertech Mayorista</h1>
         <p>Accesorios electrónicos al por mayor</p>
@@ -216,7 +213,7 @@
 
   <!-- Hero -->
   <section class="hero">
-    <h2>Proveedor de Accesorios al Por Mayor para toda Argentina.</h2>
+    <h2>Proveedor Confiable de Accesorios al Por Mayor</h2>
     <p>Productos de calidad para tiendas, distribuidores y emprendedores. Precios especiales por volumen. Envíos a todo el país. En CABA entrega el mismo día.</p>
     <a href="catalogo.html" class="btn">Ver Catálogo Completo</a>
   </section>
@@ -259,4 +256,3 @@
 
 </body>
 </html>
-
